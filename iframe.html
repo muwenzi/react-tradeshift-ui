@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base target="_parent">
+    <script>
+        if (window.parent !== window) {
+            window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+        }
+    </script>
+    <title>Storybook</title>
+    <link rel="stylesheet" href="//d5wfroyti11sa.cloudfront.net/prod/client/ts-10.0.17.min.css" />
+<script src="//d5wfroyti11sa.cloudfront.net/prod/client/ts-10.0.17.min.js"></script>
+
+<style>
+	.ts-maincontent {
+		padding: 2em;
+		background-color: #FFF;
+	}
+</style>
+<script>
+	ts.ui.ready(function() {
+		// Move the root element into the Tradeshift UI Template:
+		var main = document.createElement('main');
+		var root = document.getElementById('root');
+		root.setAttribute('data-ts', 'MainContent');
+		main.setAttribute('data-ts', 'Main');
+		main.appendChild(root);
+		document.body.appendChild(main);
+	});
+
+</script>
+
+</head>
+<body>
+<div id="root"></div>
+<div id="error-display"></div>
+<script type="text/javascript" src="static/preview.4fd3c7ca05d1a91270d0.bundle.js"></script></body>
+</html>
