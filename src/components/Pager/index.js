@@ -10,26 +10,23 @@ class Pager extends PureComponent {
 		this.onRef = this.onRef.bind(this);
 	}
 	componentDidUpdate() {
-		this.onRef(this.modalRef);
+		this.onRef(this.pagerRef);
 	}
 	onRef(ref) {
 		if (!ref) {
 			return;
 		}
 
-		if (!this.modalRef) {
-			this.modalRef = ref;
-		}
-
 		window.ts.ui.get(ref, spirit => {
 			spirit.pages = this.props.pages;
 			spirit.page = this.props.page;
-			if (!this.modalRef) {
+			if (!this.pagerRef) {
 				spirit.onselect = debounce(page => {
 					if (this.props.onSelect) {
 						this.props.onSelect(page);
 					}
 				}, 200);
+				this.pagerRef = ref;
 			}
 		});
 	}
