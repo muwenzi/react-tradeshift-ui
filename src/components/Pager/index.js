@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import utils from '../../utils';
+import debounce from 'lodash.debounce';
 
 const noop = () => {};
 
@@ -25,7 +25,7 @@ class Pager extends PureComponent {
 			spirit.pages = this.props.pages;
 			spirit.page = this.props.page;
 			if (!this.modalRef) {
-				spirit.onselect = utils.debounce(page => {
+				spirit.onselect = debounce(page => {
 					if (this.props.onSelect) {
 						this.props.onSelect(page);
 					}
