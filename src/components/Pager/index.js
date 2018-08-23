@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
-const noop = () => {};
-
 class Pager extends PureComponent {
 	constructor(props) {
 		super(props);
@@ -38,17 +36,11 @@ class Pager extends PureComponent {
 
 Pager.propTypes = {
 	// The total amount of pages.
-	pages: PropTypes.number,
+	pages: PropTypes.number.isRequired,
 	// The current page index, zero based.
-	page: PropTypes.number,
+	page: PropTypes.number.isRequired,
 	// Called whenever a page is selected; and with the new index as argument.
-	onSelect: PropTypes.func
-};
-
-Pager.defaultProps = {
-	pages: 0,
-	page: 0,
-	onSelect: noop
+	onSelect: PropTypes.func.isRequired
 };
 
 export default Pager;
